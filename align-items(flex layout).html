@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>flex布局-靶子</title>
+  <title>flex布局-居中</title>
   <style type="text/css">
     div {
       font-size: 16px;
@@ -26,10 +26,12 @@
     div span {
       width: 7em;
       height: 7em;
+      /* HSL使用色相(hue)，饱和度(saturation)和亮度(lightness)调配成的颜色 */
       background-color: hsla(0, 100%, 72%, 0.8);
       border-radius: 50%;
     }
 
+    /* flex-column为row时，align-items指的垂直方向，justify-content指水平方向 */
     div:nth-child(1) { align-items: center; }
     div:nth-child(2) { justify-content: center  }
     div:nth-child(3) {
