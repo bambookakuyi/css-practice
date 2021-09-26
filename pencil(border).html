@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>pencil</title>
+	<style type="text/css">
+		.pencil {
+			display: flex;
+			width: 50em; /* font-size的50倍。如果没设置font-site，则默认为16px的倍数 */
+			height: 3.5em;
+			font-size: 12px;
+			filter: drop-shadow(0.4em 0.8em 0.3em gray);
+			/* box-shadow 属性在元素的整个框后面创建一个矩形阴影, 而 drop-shadow() 过滤器则是创建一个符合图像本身形状(alpha通道)的阴影 */
+			/* drop-shadow(offset-x offset-y blur-radius spread-radius color) */
+			/* blur-radius: 阴影的模糊半径。值越大，阴影就越大，也越模糊。如果未指定，则默认为 0，从而产生清晰、不模糊的边缘。不允许有负值。 */
+			/* spread-radius 阴影的扩展半径。正的值会导致阴影扩大和变大，而负的值会导致阴影缩小。如果未指定，则默认为0，阴影的大小将与输入图像相同。 */
+		}
+
+		.taper {
+			width: 4em;
+		}
+
+		.taper::before, .taper::after {
+			content: '';
+			position: absolute;
+			border-style: solid;
+			border-width: calc(3.5em / 2) 4em calc(3.5em / 2) 0;
+			border-color: transparent;
+		}
+
+		.taper::before {
+			border-right-color: burlywood;
+		}
+
+		.taper::after {
+			border-right-color: black;
+			transform-origin: left; /* 设置旋转/转换元素的基点位置 */
+			transform: scale(0.3); /* 缩小到原先的0.3倍，绘画出笔头 */
+		}
+
+		.barrel {
+			width: 40em;
+			background-color: green;
+			border-top: 1em solid forestgreen;
+			border-bottom: 1em solid darkgreen;
+			color: silver;
+			line-height: 1.5em;
+			text-align: center;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+		}
+
+		.eraser {
+			position: relative;
+			width: 6em;
+			background-color: lightpink;
+			border-top: 1em solid pink;
+			border-bottom: 1em solid lightcoral;
+			border-radius: 0 0.5em 0.5em 0;
+		}
+
+		/* 绘制橡皮擦的铁箍 */
+		.eraser::before {
+			content: '';
+			position: absolute;
+			width: 1.5em;
+			height: 1.5em;
+			background-color: silver;
+			border-top: 1em solid lightgray;
+			border-bottom: 1em solid gray;
+			top: -1em; /* 铁箍定位在父元素橡皮的左上角，不包含橡皮的边框，位置偏下1em，所以再用top向上移动1em */
+		}
+	</style>
+</head>
+<body>
+	<figure class="pencil">
+		<!-- taper: 椎体，barrel: 桶, eraser: 橡皮擦 -->
+		<span class="taper"></span> 
+		<span class="barrel"></span>
+		<span class="eraser"></span>
+	</figure>
+</body>
+</html>
