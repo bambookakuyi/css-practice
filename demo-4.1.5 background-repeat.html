@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>尺子(ruler)</title>
+	<style type="text/css">
+		div {
+			width: 45em;
+			height: 6em;
+			font-size: 10px;
+			background: linear-gradient(
+				peru 45%,
+				sandybrown 45%
+			);
+			margin: 5em;
+			position: relative;
+		}
+
+		div::before, div::after {
+			content: '';
+			position: absolute;
+			height: inherit;
+			background-image: linear-gradient(to right, darkslategray 1em, transparent 1em);
+			background-repeat: repeat-x;
+		}
+
+		div::before {
+			background-size: 4em 2em; /* 分别设置背景图的宽和高 */
+			left: 1em;
+			width: 44em;
+		}
+
+		div::after {
+			background-size: 4em 1em;
+			left: 3em;
+			width: 42em;
+		}
+	</style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>
