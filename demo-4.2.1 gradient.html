@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>渐变色</title>
+	<style type="text/css">
+	  .linear-gradient {
+	  	width: 650px;
+	  	height: 100px;
+      margin: 25px 25px;
+      /* 色彩值的停止位置的间隔是10%，直到40%，40%之后没有其他色彩值，系统会自动填充一个 `cyan 100%` 参数 */
+	  	background-image: linear-gradient(
+	  		to right,
+	  		orangered 0%, /* 0% 到 10%之间是 orangered 到 orange 的渐变 */
+	  		orange 10%,
+	  		gold 20%,
+	  		lightgreen 30%,
+	  		cyan 40%);
+	  }
+
+	  .radial-gradient {
+	  	width: 700px;
+	  	height: 300px;
+	  	display: flex;
+	  	align-items: center;
+	  	justify-content: space-around;
+	  }
+
+		.diffusion {
+			width: 300px;
+			height: 300px;
+			background-image: radial-gradient(orangered, orange, gold, lightgreen, cyan);
+		}
+
+		.sharp {
+			width: 300px;
+			height: 300px;
+			background-image: radial-gradient(
+				orangered 15%,
+				orange 15%, orange 30%,
+				gold 30%, gold 45%,
+				lightgreen 45%, lightgreen 60%,
+				cyan 60%);
+		}
+	</style>
+</head>
+<body>
+	<div class="linear-gradient"></div>
+	<div class="radial-gradient">
+		<div class="diffusion"></div>
+		<div class="sharp"></div>
+	</div>
+</body>
+</html>
