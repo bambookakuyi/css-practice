@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>雷达</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			height: 100vh; /* 1vh相当于视觉窗口viewport高度的1% */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: radial-gradient(circle at center, silver, black);
+		}
+
+		.radar {
+			width: calc(8em + 1.5em);
+			height: calc(8em + 1.5em);
+			font-size: 30px;
+			background-color: black;
+			/* 这里的background-image如果改成background，那么会覆盖掉前面的background-color，导致background-color样式失效 */
+			background-image:
+			  linear-gradient(
+					90deg,
+					transparent 49.75%,
+					darkgreen 49.75%, darkgreen 50.25%,
+					transparent 50.25%
+				),
+				linear-gradient(
+					transparent 49.75%,
+					darkgreen 49.75%, darkgreen 50.25%,
+					transparent 50.25%
+				),
+				repeating-radial-gradient(
+					transparent 0,
+					transparent 0.95em,
+					darkgreen 0.96em, darkgreen 1em,
+					transparent 1em
+				);
+		  position: relative;
+		  border-radius: 50%;
+		}
+
+		.radar::before {
+			content: '';
+			position: absolute;
+			width: calc(8em / 2);
+			height: calc(8em / 2);
+			/* background是一个集合，它包括background-color,background-image,background-size */
+			background: linear-gradient(45deg, rgb(0, 0, 0, 0) 50%, rgb(0, 192, 0, 1) 100%);
+			border-radius: 100% 0 0 0;
+			left: calc(1.5em / 2); 
+			top: calc(1.5em / 2);
+			/* 雷达上的光线以右下角为原点绕圈，绕一圈花5s */
+			animation: scaning 5s linear infinite;
+			transform-origin: right bottom;
+		}
+
+		@keyframes scaning {
+			to {
+				transform: rotate(1turn);
+			}
+		}
+	</style>
+</head>
+<body>
+	<figure class="radar"></figure>
+</body>
+</html>
