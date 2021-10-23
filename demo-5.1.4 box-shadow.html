@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>复制自身的阴影</title>
+	<style type="text/css">
+		figure {
+			width: 1em;
+			height: 1em;
+			color: orange;
+			border-radius: 50%;
+			border: 1px dashed black;
+			/* 多重阴影绘制5个与本体大小一样的阴影 */
+			box-shadow:
+			  1.1em 0em,
+			  0em 1.1em,
+			  1.1em 1.1em,
+			  2.2em 1.1em,
+			  1.1em 2.2em;
+		}
+	</style>
+</head>
+<body>
+	<figure></figure>
+</body>
+</html>
