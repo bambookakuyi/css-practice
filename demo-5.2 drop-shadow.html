@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>绘制QQ</title>
+	<style type="text/css">
+	  /* 绘制椭圆圈 */
+		.qq {
+			font-size: 10px;
+			box-sizing: border-box;
+			width: 20em;
+			height: 22em;
+			color: orange; /* 边框颜色 */
+			border: 3em solid;
+			border-radius: 50%;
+			position: relative;
+		}
+
+		/* 绘制Q上的一撇 */
+		.qq::before {
+			content: '';
+			position: absolute;
+			width: 10em;
+			height: 5em;
+			top: 11em;
+			left: 9em;
+			background-color: currentColor;
+			border-radius: 50%;
+			transform: rotate(45deg);
+		}
+
+		/* 通过drop-shadow过滤器再绘制一个Q */
+	  .qq {
+	  	filter: drop-shadow(21em 0);
+	  }
+
+	  /* drop-shadow不包含透明部分，如果将字母“Q”指定了白色背景，则圆圈中间不再透明了，阴影就不会有透明的区域 */
+	  /* 打开下面注释，效果见图二 */
+	  /*.qq {
+	  	background-color: white;
+	  }*/
+	</style>
+</head>
+<body>
+	<figure class="qq"></figure>
+</body>
+</html>
